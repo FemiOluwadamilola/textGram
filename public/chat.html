@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/style.css">
+  <title>textGram</title>
+</head>
+<body>
+  <div class="chat-container">
+    <header class="chat-header">
+      <!-- menu bar to toggle sideDrawer -->
+      <div class="menu">
+         <div class="menu-bar"></div>
+         <div class="menu-bar"></div>
+         <div class="menu-bar"></div>
+      </div>
+      
+      <!-- app name -->
+      <h3><i class="fas fa-paper-plane"></i> textGram</h3>
+      <a href="index.html" class="btn">logout</a>
+      <!-- <a href="#" class="setting"><i class="fas fa-cog"></i></a> -->
+
+    </header>
+
+    <main class="chat-main">
+      <div class="chat-sidebar">
+        <h3><i class="fas fa-comments"></i> Room Name:</h3>
+        <h2 id="room-name"> 
+          <!-- room name goes here! -->
+        </h2>
+        <h3><i class="fas fa-users"></i> Users</h3>
+        <ul id="users">
+         <!-- all user names goes here! -->
+        </ul>
+      </div>
+
+      <div class="chat-messages">
+        <!-- live message goes here from the server -->
+      </div>
+    </main>
+    <div class="chat-form-container">
+      <form id="chat-form">
+        <input
+          id="msg"
+          type="text"
+          placeholder="Enter Message"
+          required
+          autocomplete="off"
+        />
+        <button class="btn sendBtn"><i class="fas fa-paper-plane"></i></button>
+      </form>
+    </div>
+  </div>
+
+  <!-- side Drawer section-->
+  <section class="sideDrawer">
+     <div class="sideDrawerHeader">
+       <div class="brand">
+          <h3 class="brandName"><i class="fas fa-paper-plane"></i> textGram</h3>
+       
+         <!-- darkmode toggler -->
+          <label class="switch">
+            <input type="checkbox" class="darkModeCkb">
+            <div class="slider round"></div>
+        </label>
+       </div>
+   </div>
+        
+   <div id="nav-container">
+      <ul class="navigation">
+         <li><a href="#" id="newRoom" class="navigation-item"><i class="fas fa-users"></i>
+           <span>New Room</span></a>
+          </li>
+         <li><a href="#" id="friends" class="navigation-item"><i class="fas fa-user"></i>
+          <span>Friends</span></a>
+        </li>
+         <li><a href="#" id="videoCall" class="navigation-item"><i class="fas fa-video"></i>
+          <span>Video Call</span></a>
+        </li>
+         <li><a href="#" id="groupCall" class="navigation-item"><i class="fas fa-phone"></i>
+          <span>Group Call</span></a>
+        </li>
+         <li><a href="#" id="settings" class="navigation-item"><i class="fas fa-cog"></i>
+          <span>Settings</span></a>
+        </li>
+         <li><a href="#" onclick="close_window()" class="navigation-item "><i class="fas fa-power-off"></i>
+          <span>log out</span></a>
+        </li>
+      </ul>
+   </div>
+  </section>
+  <!-- backDrop div container -->
+   <div class="backDrop">
+    <!--this div block is for the sideDrawer overlay  -->
+  </div>
+  <script>
+    function close_window(){
+       if(confirm('Are you sure?')){
+          window.location.href = 'index.html';
+       }
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.4/qs.min.js" integrity="sha512-BHtomM5XDcUy7tDNcrcX1Eh0RogdWiMdXl3wJcKB3PFekXb3l5aDzymaTher61u6vEZySnoC/SAj2Y/p918Y3w==" crossorigin="anonymous"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
